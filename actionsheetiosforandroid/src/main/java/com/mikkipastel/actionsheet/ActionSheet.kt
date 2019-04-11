@@ -11,6 +11,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import java.util.*
 
@@ -28,6 +30,7 @@ class ActionSheet {
 
     var alertDialog: AlertDialog? = null
     lateinit var title : TextView
+    lateinit var linebottom: LinearLayout
     lateinit var cancel : TextView
     lateinit var myRecyclerView: RecyclerView
     val adapter by lazy { RecyclerViewAdapter(data) }
@@ -67,10 +70,11 @@ class ActionSheet {
         return actionSheet
     }
 
-    fun create( actionSheetCallBack: ActionSheetCallBack){
+    fun create(actionSheetCallBack: ActionSheetCallBack) {
         val adb = AlertDialog.Builder(context)
         val v = LayoutInflater.from(context).inflate(R.layout.action_sheet,null)
         title = v.findViewById(R.id.tvTitle)
+        linebottom = v.findViewById(R.id.linebottom)
         cancel = v.findViewById(R.id.tvCancelAction)
 
         setData()
@@ -107,6 +111,11 @@ class ActionSheet {
         cancel.setTextColor(mData.colorCancel)
         adapter.color = mData.colorData
         adapter.colorSelect = mData.colorSelect
+
+        if (mData.title == "") {
+            title.visibility = View.GONE
+            linebottom.visibility = View.GONE
+        }
     }
 
     object mData {
