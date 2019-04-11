@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Action sheet.iml" filepath="$PROJECT_DIR$/Action sheet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Actionsheet-android.iml" filepath="$PROJECT_DIR$/.idea/Actionsheet-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionsheetiosforandroid/actionsheetiosforandroid.iml" filepath="$PROJECT_DIR$/actionsheetiosforandroid/actionsheetiosforandroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/actionsheetiosforandroid/actionsheetiosforandroid.iml" filepath="$PROJECT_DIR$/actionsheetiosforandroid/actionsheetiosforandroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/xample/app.iml" filepath="$PROJECT_DIR$/xample/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xample/xample.iml" filepath="$PROJECT_DIR$/xample/xample.iml" />
       <module fileurl="file://$PROJECT_DIR$/xample/xample.iml" filepath="$PROJECT_DIR$/xample/xample.iml" />
     </modules>
   </component>
