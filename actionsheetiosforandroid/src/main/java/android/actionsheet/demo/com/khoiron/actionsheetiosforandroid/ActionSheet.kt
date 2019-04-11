@@ -41,7 +41,7 @@ class ActionSheet {
     }
 
     fun setColorTitleCancel(title: Int): ActionSheet {
-        mData.colorCancle = title
+        mData.colorCancel = title
         return actionSheet
     }
 
@@ -101,7 +101,7 @@ class ActionSheet {
         title.text = mData.title
         cancle.text = mData.titleCancel
         title.setTextColor(mData.colorTitle)
-        cancle.setTextColor(mData.colorCancle)
+        cancle.setTextColor(mData.colorCancel)
         adapter.color = mData.colorData
         adapter.colorSelect = mData.colorSelect
     }
@@ -110,7 +110,7 @@ class ActionSheet {
         var title =""
         var titleCancel =""
         var colorData = Color.parseColor("#5EA1D6")
-        var colorCancle = Color.parseColor("#5EA1D6")
+        var colorCancel = Color.parseColor("#5EA1D6")
         var colorTitle = Color.parseColor("#afafaf")
         var colorSelect = Color.parseColor("#FAFF1E1E")
     }
