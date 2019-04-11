@@ -1,6 +1,4 @@
 <resources>
-
-
     <style name="DialogAnimations" />
     <style name="DialogAnimations.SmileWindow">
         <item name="android:windowEnterAnimation">@anim/slide_in_botoom</item>
