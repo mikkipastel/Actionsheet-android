@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:minWidth="500dp"
-    android:background="#00ffffff"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="#00ffffff">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/dialogbgrounded">
+
         <TextView
-            android:textColor="#707070"
-            android:layout_margin="15dp"
-            android:textSize="16sp"
-            android:gravity="center"
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#707070"
+            android:textAlignment="center"
+            android:textSize="16sp" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:id="@+id/linebottom"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:orientation="vertical"
             android:background="#EBEBEB"/>
 
         <android.support.v7.widget.RecyclerView
-            android:background="#00ffffff"
             android:id="@+id/myRecyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"></android.support.v7.widget.RecyclerView>
+            android:layout_marginBottom="4dp"
+            android:background="#00ffffff"
+            android:overScrollMode="never"/>
 
     </LinearLayout>
 
@@ -43,13 +48,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tvCancelAction"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="Cancel"
-            android:textSize="22dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="16sp"
             android:gravity="center"
             android:textColor="#5EA1D6"/>
+
     </LinearLayout>
+
 </LinearLayout>
