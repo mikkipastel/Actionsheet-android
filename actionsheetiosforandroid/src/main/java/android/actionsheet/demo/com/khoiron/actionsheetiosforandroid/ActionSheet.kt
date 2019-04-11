@@ -1,7 +1,7 @@
 package android.actionsheet.demo.com.khoiron.actionsheetiosforandroid
 
 import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.ActionSheetCallBack
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.onclikListener
+import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.OnClickListener
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
@@ -21,14 +21,14 @@ import java.util.*
 class ActionSheet {
 
     lateinit var context :Context
-    var data : MutableList<String> = ArrayList<String>()
+    var data : MutableList<String> = ArrayList()
     val actionSheet by lazy { ActionSheet(context,data) }
 
     var alertDialog: AlertDialog? = null
     lateinit var title : TextView
     lateinit var cancle : TextView
     lateinit var myRecyclerView: RecyclerView
-    val RecyclerviewAdapter by lazy { RecyclerviewAdapter(data) }
+    val adapter by lazy { RecyclerViewAdapter(data) }
 
     constructor(context: Context,data :MutableList<String>)  {
         this.context = context
@@ -74,22 +74,22 @@ class ActionSheet {
         setData()
 
         myRecyclerView = v.findViewById(R.id.myRecyclerview)
-        myRecyclerView.setLayoutManager(LinearLayoutManager(context))
-        myRecyclerView.setAdapter(RecyclerviewAdapter)
-        RecyclerviewAdapter.notifyDataSetChanged()
+        myRecyclerView.layoutManager = LinearLayoutManager(context)
+        myRecyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
 
-        adb.setView(v);
-        alertDialog = adb.create();
-        alertDialog?.getWindow()?.getAttributes()?.windowAnimations = R.style.DialogAnimations_SmileWindow;//R.style.DialogAnimations_SmileWindow;
+        adb.setView(v)
+        alertDialog = adb.create()
+        alertDialog?.window?.attributes?.windowAnimations = R.style.DialogAnimations_SmileWindow//R.style.DialogAnimations_SmileWindow;
         alertDialog?.setCancelable(false)
-        alertDialog?.getWindow()?.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM);
-        alertDialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        alertDialog?.window?.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM)
+        alertDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         alertDialog?.show()
 
-        RecyclerviewAdapter.onclikCallback(object : onclikListener {
-            override fun onclik(string: String, position: Int) {
+        adapter.onclickCallback(object : OnClickListener {
+            override fun onclick(string: String, position: Int) {
                 alertDialog?.dismiss()
-                actionSheetCallBack?.data(string,position)
+                actionSheetCallBack.data(string,position)
             }
         })
 
@@ -102,11 +102,11 @@ class ActionSheet {
         cancle.text = mData.titleCancel
         title.setTextColor(mData.colorTitle)
         cancle.setTextColor(mData.colorCancle)
-        RecyclerviewAdapter.color = mData.colorData
-        RecyclerviewAdapter.colorSelect = mData.colorSelect
+        adapter.color = mData.colorData
+        adapter.colorSelect = mData.colorSelect
     }
 
-    object mData{
+    object mData {
         var title =""
         var titleCancel =""
         var colorData = Color.parseColor("#5EA1D6")
