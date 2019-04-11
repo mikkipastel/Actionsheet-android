@@ -1,7 +1,7 @@
 package android.actionsheet.demo.com.khoiron.demo
 
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.ActionSheet
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.ActionSheetCallBack
+import com.mikkipastel.actionsheet.ActionSheet
+import com.mikkipastel.actionsheet.callback.ActionSheetCallBack
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +10,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val data by lazy { ArrayList<String>() }
+    private val data by lazy {
+        ArrayList<String>()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                    .setColorTitleCancel(Color.parseColor("#FF4081"))
                    .setColorTitle(Color.parseColor("#FF4081"))
                    .setColorData(Color.parseColor("#FF4081"))
-                   .create(object :ActionSheetCallBack{
+                   .create(object : ActionSheetCallBack {
                        override fun data(data: String, position: Int) {
                            if ("English".equals(data)){
                                // your action

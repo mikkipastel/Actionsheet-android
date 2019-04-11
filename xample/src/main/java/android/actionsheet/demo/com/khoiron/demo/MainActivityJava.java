@@ -1,14 +1,13 @@
 package android.actionsheet.demo.com.khoiron.demo;
 
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.ActionSheet;
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.ActionSheetCallBack;
-import android.graphics.Color;
+import com.mikkipastel.actionsheet.ActionSheet;
+import com.mikkipastel.actionsheet.callback.ActionSheetCallBack;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
 

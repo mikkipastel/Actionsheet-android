@@ -1,7 +1,8 @@
-package android.actionsheet.demo.com.khoiron.actionsheetiosforandroid
+package com.mikkipastel.actionsheet
 
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.ActionSheetCallBack
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.OnClickListener
+import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.R
+import com.mikkipastel.actionsheet.callback.ActionSheetCallBack
+import com.mikkipastel.actionsheet.callback.OnClickListener
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
@@ -16,6 +17,7 @@ import java.util.*
 
 /**
  * Created by khoiron on 01/06/18.
+ * Modify by MikkiPastel on 11/04/19.
  */
 
 class ActionSheet {
@@ -26,7 +28,7 @@ class ActionSheet {
 
     var alertDialog: AlertDialog? = null
     lateinit var title : TextView
-    lateinit var cancle : TextView
+    lateinit var cancel : TextView
     lateinit var myRecyclerView: RecyclerView
     val adapter by lazy { RecyclerViewAdapter(data) }
 
@@ -69,7 +71,7 @@ class ActionSheet {
         val adb = AlertDialog.Builder(context)
         val v = LayoutInflater.from(context).inflate(R.layout.action_sheet,null)
         title = v.findViewById(R.id.tvTitle)
-        cancle = v.findViewById(R.id.tvCancelAction)
+        cancel = v.findViewById(R.id.tvCancelAction)
 
         setData()
 
@@ -80,8 +82,9 @@ class ActionSheet {
 
         adb.setView(v)
         alertDialog = adb.create()
-        alertDialog?.window?.attributes?.windowAnimations = R.style.DialogAnimations_SmileWindow//R.style.DialogAnimations_SmileWindow;
+        alertDialog?.window?.attributes?.windowAnimations = R.style.DialogAnimations_SmileWindow
         alertDialog?.setCancelable(false)
+        alertDialog?.setCanceledOnTouchOutside(true)
         alertDialog?.window?.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM)
         alertDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         alertDialog?.show()
@@ -93,15 +96,15 @@ class ActionSheet {
             }
         })
 
-        cancle.setOnClickListener { alertDialog?.dismiss() }
+        cancel.setOnClickListener { alertDialog?.dismiss() }
 
     }
 
     private fun setData() {
         title.text = mData.title
-        cancle.text = mData.titleCancel
+        cancel.text = mData.titleCancel
         title.setTextColor(mData.colorTitle)
-        cancle.setTextColor(mData.colorCancel)
+        cancel.setTextColor(mData.colorCancel)
         adapter.color = mData.colorData
         adapter.colorSelect = mData.colorSelect
     }

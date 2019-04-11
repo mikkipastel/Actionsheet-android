@@ -1,6 +1,7 @@
-package android.actionsheet.demo.com.khoiron.actionsheetiosforandroid
+package com.mikkipastel.actionsheet
 
-import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.Interface.OnClickListener
+import android.actionsheet.demo.com.khoiron.actionsheetiosforandroid.R
+import com.mikkipastel.actionsheet.callback.OnClickListener
 import android.graphics.Color
 import android.os.Handler
 import android.support.v7.widget.RecyclerView
@@ -12,10 +13,11 @@ import android.widget.TextView
 
 /**
  * Created by khoiron on 01/06/18.
+ * Modify by MikkiPastel on 11/04/19.
  */
 class RecyclerViewAdapter(var data: MutableList<String>): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
 
-    lateinit var onClick :OnClickListener
+    lateinit var onClick : OnClickListener
 
     var color = Color.parseColor("#5EA1D6")
     var colorSelect = Color.parseColor("#FAFF1E1E")
