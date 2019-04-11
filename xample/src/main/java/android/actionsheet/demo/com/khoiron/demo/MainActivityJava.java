@@ -34,7 +34,7 @@ public class MainActivityJava extends AppCompatActivity {
             public void onClick(View view) {
                 new ActionSheet(MainActivityJava.this,data)
                         .setTitle("What do you want to do with the file")
-                        .setCancelTitle("Cancle")
+                        .setCancelTitle("Cancel")
                         .setColorTitle(getResources().getColor(R.color.title))
                         .setColorTitleCancel(getResources().getColor(R.color.action))
                         .setColorData(getResources().getColor(R.color.action))
